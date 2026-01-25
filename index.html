@@ -118,4 +118,109 @@ h1 {
 <div class="semestre amarillo">
 <h2>Semestre 4</h2>
 <div class="materia" data-creditos="3.5">Bioética</div>
-<div class="materia" data-credito
+<div class="materia" data-creditos="6.5">Educación y Técnicas Quirúrgicas</div>
+<div class="materia" data-creditos="3.5">Introducción a la Clínica Médica</div>
+<div class="materia" data-creditos="3.5">Histopatología</div>
+<div class="materia" data-creditos="4.5">Fisiopatología</div>
+</div>
+
+<!-- SEMESTRES 5 y 6 -->
+<div class="semestre verde">
+<h2>Semestre 5</h2>
+<div class="materia" data-creditos="3.5">Bioinformática Médica</div>
+<div class="materia" data-creditos="3">Genética</div>
+<div class="materia" data-creditos="4.5">Inmunología</div>
+<div class="materia" data-creditos="4.5">Hematología</div>
+<div class="materia" data-creditos="4.5">Infectología</div>
+<div class="materia" data-creditos="3">Nutrición</div>
+<div class="materia" data-creditos="3">Práctica Clínica General</div>
+</div>
+
+<div class="semestre verde">
+<h2>Semestre 6</h2>
+<div class="materia" data-creditos="3.5">Imagenología</div>
+<div class="materia" data-creditos="3">Traumatología y Ortopedia</div>
+<div class="materia" data-creditos="4.5">Gastroenterología</div>
+<div class="materia" data-creditos="3">Otorrinolaringología</div>
+<div class="materia" data-creditos="3">Urología</div>
+<div class="materia" data-creditos="3">Oftalmología</div>
+<div class="materia" data-creditos="5.5">Salud Pública</div>
+<div class="materia" data-creditos="3">Práctica Clínica Quirúrgica</div>
+</div>
+
+<!-- SEMESTRES 7 y 8 -->
+<div class="semestre naranja">
+<h2>Semestre 7</h2>
+<div class="materia" data-creditos="5.5">Medicina Social</div>
+<div class="materia" data-creditos="3.5">Cardiología</div>
+<div class="materia" data-creditos="4.5">Neumología</div>
+<div class="materia" data-creditos="3.5">Nefrología</div>
+<div class="materia" data-creditos="3.5">Neurología</div>
+<div class="materia" data-creditos="3">Oncología</div>
+<div class="materia" data-creditos="3">Práctica Clínica de Medicina Interna</div>
+</div>
+
+<div class="semestre naranja">
+<h2>Semestre 8</h2>
+<div class="materia" data-creditos="3.5">Terapéutica</div>
+<div class="materia" data-creditos="5.5">Prevención en Salud</div>
+<div class="materia" data-creditos="4.5">Endocrinología</div>
+<div class="materia" data-creditos="3.5">Reumatología</div>
+<div class="materia" data-creditos="3">Dermatología</div>
+<div class="materia" data-creditos="3">Práctica Clínica MI y Cuidados Paliativos</div>
+<div class="materia" data-creditos="2">Cuidados Paliativos</div>
+<div class="materia" data-creditos="4.5">Patología Clínica</div>
+</div>
+
+<!-- SEMESTRES 9 y 10 -->
+<div class="semestre rojo">
+<h2>Semestre 9</h2>
+<div class="materia" data-creditos="3">Psiquiatría</div>
+<div class="materia" data-creditos="4.5">Pediatría</div>
+<div class="materia" data-creditos="4.5">Obstetricia</div>
+<div class="materia" data-creditos="3">Medicina Legal</div>
+<div class="materia" data-creditos="3">Práctica Clínica Obstetricia y Preinternado</div>
+</div>
+
+<div class="semestre rojo">
+<h2>Semestre 10</h2>
+<div class="materia" data-creditos="5.5">Medicina Comunitaria</div>
+<div class="materia" data-creditos="4.5">Pediatría II</div>
+<div class="materia" data-creditos="4.5">Ginecología</div>
+<div class="materia" data-creditos="2">Geriatría</div>
+<div class="materia" data-creditos="3">Práctica Clínica Ginecología y Preinternado</div>
+</div>
+
+</div>
+
+<div class="avance">
+<h2>📊 Tu avance</h2>
+<p>Materias totales: <strong>61</strong></p>
+<p>Créditos cursados: <strong id="creditos">0</strong></p>
+<p>Porcentaje de avance: <strong id="porcentaje">0%</strong></p>
+</div>
+
+<script>
+const materias = document.querySelectorAll('.materia');
+const creditosTotales = 261;
+
+materias.forEach(materia => {
+    materia.addEventListener('click', () => {
+        materia.classList.toggle('cursada');
+        calcular();
+    });
+});
+
+function calcular() {
+    let suma = 0;
+    document.querySelectorAll('.materia.cursada').forEach(m => {
+        suma += parseFloat(m.dataset.creditos);
+    });
+    document.getElementById('creditos').textContent = suma;
+    document.getElementById('porcentaje').textContent =
+        ((suma / creditosTotales) * 100).toFixed(1) + "%";
+}
+</script>
+
+</body>
+</html>

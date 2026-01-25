@@ -13,32 +13,45 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 30px;
 }
 
+/* GRID DE 2 COLUMNAS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* SEMESTRES */
 .semestre {
-    background: #fff;
     padding: 15px;
-    margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .semestre h2 {
-    color: #2c3e50;
+    margin-top: 0;
 }
 
+/* COLORES POR SEMESTRE */
+.azul { background: #e3f2fd; }
+.amarillo { background: #fff9c4; }
+.verde { background: #e8f5e9; }
+.naranja { background: #ffe0b2; }
+.rojo { background: #ffcdd2; }
+
+/* MATERIAS */
 .materia {
     padding: 8px 10px;
-    margin: 5px 0;
-    background: #e9ecef;
+    margin: 6px 0;
+    background: rgba(255,255,255,0.8);
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
 }
 
 .materia:hover {
-    background: #d6d8db;
+    background: rgba(255,255,255,1);
 }
 
 .materia.cursada {
@@ -47,12 +60,21 @@ h1 {
     color: #2e7d32;
 }
 
+/* AVANCE */
 .avance {
+    margin-top: 30px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -61,140 +83,39 @@ h1 {
 
 <h1>📚 Malla Curricular – Médico General UAZ</h1>
 
-<!-- SEMESTRES -->
+<div class="grid">
 
-<div class="semestre">
+<!-- SEMESTRES 1 y 2 -->
+<div class="semestre azul">
 <h2>Semestre 1</h2>
-<div class="materia" data-creditos="5.5">Biología Celular <span>5.5</span></div>
-<div class="materia" data-creditos="6.5">Embriología <span>6.5</span></div>
-<div class="materia" data-creditos="6.5">Fisiología y Neurofisiología Básica <span>6.5</span></div>
-<div class="materia" data-creditos="7.5">Fundamentos y Anatomía General <span>7.5</span></div>
-<div class="materia" data-creditos="3.5">Introducción a Ciencias de la Salud <span>3.5</span></div>
+<div class="materia" data-creditos="5.5">Biología Celular</div>
+<div class="materia" data-creditos="6.5">Embriología</div>
+<div class="materia" data-creditos="6.5">Fisiología y Neurofisiología Básica</div>
+<div class="materia" data-creditos="7.5">Fundamentos y Anatomía General</div>
+<div class="materia" data-creditos="3.5">Introducción a Ciencias de la Salud</div>
 </div>
 
-<div class="semestre">
+<div class="semestre azul">
 <h2>Semestre 2</h2>
-<div class="materia" data-creditos="3">Bioestadística <span>3</span></div>
-<div class="materia" data-creditos="6.5">Bioquímica <span>6.5</span></div>
-<div class="materia" data-creditos="6.5">Fisiología de Aparatos y Sistemas <span>6.5</span></div>
-<div class="materia" data-creditos="5.5">Histología <span>5.5</span></div>
-<div class="materia" data-creditos="7.5">Neuroanatomía y Anatomía General <span>7.5</span></div>
+<div class="materia" data-creditos="3">Bioestadística</div>
+<div class="materia" data-creditos="6.5">Bioquímica</div>
+<div class="materia" data-creditos="6.5">Fisiología de Aparatos y Sistemas</div>
+<div class="materia" data-creditos="5.5">Histología</div>
+<div class="materia" data-creditos="7.5">Neuroanatomía y Anatomía General</div>
 </div>
 
-<div class="semestre">
+<!-- SEMESTRES 3 y 4 -->
+<div class="semestre amarillo">
 <h2>Semestre 3</h2>
-<div class="materia" data-creditos="3">Historia y Filosofía de la Medicina <span>3</span></div>
-<div class="materia" data-creditos="3.5">Metodología de la Investigación <span>3.5</span></div>
-<div class="materia" data-creditos="6.5">Microbiología y Parasitología <span>6.5</span></div>
-<div class="materia" data-creditos="6.5">Biología Molecular <span>6.5</span></div>
-<div class="materia" data-creditos="6.5">Farmacología <span>6.5</span></div>
-<div class="materia" data-creditos="3">Psicología Médica <span>3</span></div>
+<div class="materia" data-creditos="3">Historia y Filosofía de la Medicina</div>
+<div class="materia" data-creditos="3.5">Metodología de la Investigación</div>
+<div class="materia" data-creditos="6.5">Microbiología y Parasitología</div>
+<div class="materia" data-creditos="6.5">Biología Molecular</div>
+<div class="materia" data-creditos="6.5">Farmacología</div>
+<div class="materia" data-creditos="3">Psicología Médica</div>
 </div>
 
-<div class="semestre">
+<div class="semestre amarillo">
 <h2>Semestre 4</h2>
-<div class="materia" data-creditos="3.5">Bioética <span>3.5</span></div>
-<div class="materia" data-creditos="6.5">Educación y Técnicas Quirúrgicas <span>6.5</span></div>
-<div class="materia" data-creditos="3.5">Introducción a la Clínica Médica <span>3.5</span></div>
-<div class="materia" data-creditos="3.5">Histopatología <span>3.5</span></div>
-<div class="materia" data-creditos="4.5">Fisiopatología <span>4.5</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 5</h2>
-<div class="materia" data-creditos="3.5">Bioinformática Médica <span>3.5</span></div>
-<div class="materia" data-creditos="3">Genética <span>3</span></div>
-<div class="materia" data-creditos="4.5">Inmunología <span>4.5</span></div>
-<div class="materia" data-creditos="4.5">Hematología <span>4.5</span></div>
-<div class="materia" data-creditos="4.5">Infectología <span>4.5</span></div>
-<div class="materia" data-creditos="3">Nutrición <span>3</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica General <span>3</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 6</h2>
-<div class="materia" data-creditos="3.5">Imagenología <span>3.5</span></div>
-<div class="materia" data-creditos="3">Traumatología y Ortopedia <span>3</span></div>
-<div class="materia" data-creditos="4.5">Gastroenterología <span>4.5</span></div>
-<div class="materia" data-creditos="3">Otorrinolaringología <span>3</span></div>
-<div class="materia" data-creditos="3">Urología <span>3</span></div>
-<div class="materia" data-creditos="3">Oftalmología <span>3</span></div>
-<div class="materia" data-creditos="5.5">Salud Pública <span>5.5</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica Quirúrgica <span>3</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 7</h2>
-<div class="materia" data-creditos="5.5">Medicina Social <span>5.5</span></div>
-<div class="materia" data-creditos="3.5">Cardiología <span>3.5</span></div>
-<div class="materia" data-creditos="4.5">Neumología <span>4.5</span></div>
-<div class="materia" data-creditos="3.5">Nefrología <span>3.5</span></div>
-<div class="materia" data-creditos="3.5">Neurología <span>3.5</span></div>
-<div class="materia" data-creditos="3">Oncología <span>3</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica de Medicina Interna <span>3</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 8</h2>
-<div class="materia" data-creditos="3.5">Terapéutica <span>3.5</span></div>
-<div class="materia" data-creditos="5.5">Prevención en Salud <span>5.5</span></div>
-<div class="materia" data-creditos="4.5">Endocrinología <span>4.5</span></div>
-<div class="materia" data-creditos="3.5">Reumatología <span>3.5</span></div>
-<div class="materia" data-creditos="3">Dermatología <span>3</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica MI y Cuidados Paliativos <span>3</span></div>
-<div class="materia" data-creditos="2">Cuidados Paliativos <span>2</span></div>
-<div class="materia" data-creditos="4.5">Patología Clínica <span>4.5</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 9</h2>
-<div class="materia" data-creditos="3">Psiquiatría <span>3</span></div>
-<div class="materia" data-creditos="4.5">Pediatría <span>4.5</span></div>
-<div class="materia" data-creditos="4.5">Obstetricia <span>4.5</span></div>
-<div class="materia" data-creditos="3">Medicina Legal <span>3</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica Obstetricia y Preinternado <span>3</span></div>
-</div>
-
-<div class="semestre">
-<h2>Semestre 10</h2>
-<div class="materia" data-creditos="5.5">Medicina Comunitaria <span>5.5</span></div>
-<div class="materia" data-creditos="4.5">Pediatría II <span>4.5</span></div>
-<div class="materia" data-creditos="4.5">Ginecología <span>4.5</span></div>
-<div class="materia" data-creditos="2">Geriatría <span>2</span></div>
-<div class="materia" data-creditos="3">Práctica Clínica Ginecología y Preinternado <span>3</span></div>
-</div>
-
-<div class="avance">
-<h2>📊 Tu avance</h2>
-<p>Materias Totales: <strong>61</strong></p>
-<p>Créditos cursados: <strong id="creditos">0</strong></p>
-<p>Porcentaje de avance: <strong id="porcentaje">0%</strong></p>
-</div>
-
-<script>
-const materias = document.querySelectorAll('.materia');
-const creditosTotales = 261; // total real aproximado de la carrera
-
-materias.forEach(materia => {
-    materia.addEventListener('click', () => {
-        materia.classList.toggle('cursada');
-        calcularAvance();
-    });
-});
-
-function calcularAvance() {
-    let creditos = 0;
-    document.querySelectorAll('.materia.cursada').forEach(m => {
-        creditos += parseFloat(m.dataset.creditos);
-    });
-
-    const porcentaje = ((creditos / creditosTotales) * 100).toFixed(1);
-
-    document.getElementById('creditos').textContent = creditos;
-    document.getElementById('porcentaje').textContent = porcentaje + "%";
-}
-</script>
-
-</body>
-</html>
-
+<div class="materia" data-creditos="3.5">Bioética</div>
+<div class="materia" data-credito

@@ -3,74 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <title>Malla Curricular</title>
+
 <style>
-body {
+body{
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  margin: 0;
-  padding: 20px;
+  background:#f4f6f8;
+  margin:0;
+  padding:20px;
 }
 
-h1 {
-  text-align: center;
-  font-size: 48px;
-  color: #0033a0; /* azul rey */
-  margin-bottom: 5px;
+/* TITULOS */
+h1{
+  text-align:center;
+  font-size:48px;
+  color:#0033a0;
+  margin-bottom:5px;
+}
+h2{
+  text-align:center;
+  margin-top:0;
+  margin-bottom:30px;
+  font-weight:normal;
 }
 
-h2 {
-  text-align: center;
-  font-weight: normal;
-  margin-top: 0;
-  margin-bottom: 30px;
+/* GRID */
+.container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+/* SEMESTRES */
+.semestre{
+  border-radius:12px;
+  padding:15px;
+}
+.semestre h3{
+  margin:0;
+  cursor:pointer;
+  user-select:none;
 }
 
-.semestre {
-  border-radius: 10px;
-  padding: 15px;
-  color: #000;
+/* MATERIAS */
+.materias{
+  margin-top:12px;
+  display:none;
+}
+.materia{
+  background:#ffffff;
+  border-radius:8px;
+  padding:10px;
+  margin-bottom:8px;
+  cursor:pointer;
+  box-shadow:0 2px 4px rgba(0,0,0,0.1);
+  transition:0.2s;
+}
+.materia:hover{
+  transform:scale(1.02);
+}
+.materia.cursada{
+  text-decoration:line-through;
+  background:#e0e0e0;
+  opacity:0.6;
 }
 
-.semestre h3 {
-  margin: 0;
-  cursor: pointer;
+/* COLORES SEMESTRES */
+.azul{background:#b3d1ff;}
+.amarillo{background:#fff2b3;}
+.verde{background:#c6f5c6;}
+.naranja{background:#ffd6a3;}
+.rojo{background:#ffb3b3;}
+
+/* AVANCE */
+.avance{
+  margin-top:40px;
+  text-align:center;
 }
-
-.materias {
-  margin-top: 10px;
-  display: none;
+.progress-container{
+  width:80%;
+  height:25px;
+  background:#ddd;
+  border-radius:20px;
+  margin:15px auto;
+  overflow:hidden;
 }
-
-.materia {
-  cursor: pointer;
-  margin: 6px 0;
-}
-
-.materia.cursada {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-/* Colores */
-.azul { background: #b3d1ff; }
-.amarillo { background: #fff2b3; }
-.verde { background: #c6f5c6; }
-.naranja { background: #ffd6a3; }
-.rojo { background: #ffb3b3; }
-
-.avance {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 18px;
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#0033a0;
+  transition:width 0.4s;
 }
 </style>
 </head>
+
 <body>
 
 <h1>MALLA CURRICULAR</h1>
@@ -78,7 +103,7 @@ h2 {
 
 <div class="container">
 
-<!-- SEMESTRE 1 -->
+<!-- SEMESTRES 1–10 -->
 <div class="semestre azul">
 <h3 onclick="toggle('s1')">Semestre 1</h3>
 <div class="materias" id="s1">
@@ -90,7 +115,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 2 -->
 <div class="semestre azul">
 <h3 onclick="toggle('s2')">Semestre 2</h3>
 <div class="materias" id="s2">
@@ -102,7 +126,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 3 -->
 <div class="semestre amarillo">
 <h3 onclick="toggle('s3')">Semestre 3</h3>
 <div class="materias" id="s3">
@@ -115,7 +138,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 4 -->
 <div class="semestre amarillo">
 <h3 onclick="toggle('s4')">Semestre 4</h3>
 <div class="materias" id="s4">
@@ -127,7 +149,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 5 -->
 <div class="semestre verde">
 <h3 onclick="toggle('s5')">Semestre 5</h3>
 <div class="materias" id="s5">
@@ -141,7 +162,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 6 -->
 <div class="semestre verde">
 <h3 onclick="toggle('s6')">Semestre 6</h3>
 <div class="materias" id="s6">
@@ -156,7 +176,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 7 -->
 <div class="semestre naranja">
 <h3 onclick="toggle('s7')">Semestre 7</h3>
 <div class="materias" id="s7">
@@ -170,7 +189,6 @@ h2 {
 </div>
 </div>
 
-<!-- SEMESTRE 8 -->
 <div class="semestre naranja">
 <h3 onclick="toggle('s8')">Semestre 8</h3>
 <div class="materias" id="s8">
@@ -179,13 +197,12 @@ h2 {
 <div class="materia" onclick="toggleMateria(this,4.5)">Endocrinología</div>
 <div class="materia" onclick="toggleMateria(this,3.5)">Reumatología</div>
 <div class="materia" onclick="toggleMateria(this,3)">Dermatología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica MI y Cuidados Paliativos</div>
+<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica MI y CP</div>
 <div class="materia" onclick="toggleMateria(this,2)">Cuidados Paliativos</div>
 <div class="materia" onclick="toggleMateria(this,4.5)">Patología Clínica</div>
 </div>
 </div>
 
-<!-- SEMESTRE 9 -->
 <div class="semestre rojo">
 <h3 onclick="toggle('s9')">Semestre 9</h3>
 <div class="materias" id="s9">
@@ -193,11 +210,10 @@ h2 {
 <div class="materia" onclick="toggleMateria(this,4.5)">Pediatría</div>
 <div class="materia" onclick="toggleMateria(this,4.5)">Obstetricia</div>
 <div class="materia" onclick="toggleMateria(this,3)">Medicina Legal</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica de Obstetricia y Preinternado</div>
+<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Obstetricia</div>
 </div>
 </div>
 
-<!-- SEMESTRE 10 -->
 <div class="semestre rojo">
 <h3 onclick="toggle('s10')">Semestre 10</h3>
 <div class="materias" id="s10">
@@ -205,7 +221,7 @@ h2 {
 <div class="materia" onclick="toggleMateria(this,4.5)">Pediatría II</div>
 <div class="materia" onclick="toggleMateria(this,4.5)">Ginecología</div>
 <div class="materia" onclick="toggleMateria(this,2)">Geriatría</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Ginecología y Preinternado</div>
+<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Ginecología</div>
 </div>
 </div>
 
@@ -213,45 +229,52 @@ h2 {
 
 <div class="avance">
 <p><strong>Materias Totales:</strong> 61</p>
+
+<div class="progress-container">
+  <div class="progress-bar" id="barra"></div>
+</div>
+
 <p><strong>Créditos cursados:</strong> <span id="creditos">0</span></p>
 <p><strong>Avance:</strong> <span id="porcentaje">0</span>%</p>
 </div>
 
 <script>
-let totalCreditos = 0;
+const TOTAL_CREDITOS = 273.5;
 
-function toggle(id) {
+function toggle(id){
   const el = document.getElementById(id);
-  el.style.display = el.style.display === "none" ? "block" : "none";
+  el.style.display = el.style.display === "block" ? "none" : "block";
 }
 
-function toggleMateria(el, creditos) {
+function toggleMateria(el,creditos){
   el.classList.toggle("cursada");
   actualizar();
   guardar();
 }
 
-function actualizar() {
+function actualizar(){
   let suma = 0;
-  document.querySelectorAll(".materia.cursada").forEach(m => {
+  document.querySelectorAll(".materia.cursada").forEach(m=>{
     suma += Number(m.getAttribute("onclick").match(/,([\d.]+)\)/)[1]);
   });
+  const porcentaje = (suma / TOTAL_CREDITOS) * 100;
   document.getElementById("creditos").textContent = suma.toFixed(1);
-  document.getElementById("porcentaje").textContent = ((suma / 273.5) * 100).toFixed(1);
+  document.getElementById("porcentaje").textContent = porcentaje.toFixed(1);
+  document.getElementById("barra").style.width = porcentaje + "%";
 }
 
-function guardar() {
-  const estados = [];
+function guardar(){
+  const estado = [];
   document.querySelectorAll(".materia").forEach((m,i)=>{
-    estados[i] = m.classList.contains("cursada");
+    estado[i] = m.classList.contains("cursada");
   });
-  localStorage.setItem("avance", JSON.stringify(estados));
+  localStorage.setItem("avanceMalla", JSON.stringify(estado));
 }
 
-function cargar() {
-  const estados = JSON.parse(localStorage.getItem("avance") || "[]");
+function cargar(){
+  const estado = JSON.parse(localStorage.getItem("avanceMalla") || "[]");
   document.querySelectorAll(".materia").forEach((m,i)=>{
-    if(estados[i]) m.classList.add("cursada");
+    if(estado[i]) m.classList.add("cursada");
   });
   actualizar();
 }

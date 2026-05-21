@@ -1,285 +1,794 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<title>Malla Curricular</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Malla Curricular Medicina UAZ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-  font-family: Arial, sans-serif;
-  background:#f4f6f8;
+
+*{
   margin:0;
-  padding:20px;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* TITULOS */
-h1{
-  text-align:center;
-  font-size:48px;
-  color:#0033a0;
-  margin-bottom:5px;
-}
-h2{
-  text-align:center;
-  margin-top:0;
-  margin-bottom:30px;
-  font-weight:normal;
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(to bottom,#eef2f7,#dfe6ee);
+  padding:40px;
 }
 
-/* GRID */
+/* ================= LOGO ================= */
+
+.logo-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-bottom:60px;
+}
+
+.logo{
+  width:100%;
+  max-width:1200px;
+  object-fit:contain;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+/* ================= GRID ================= */
+
 .container{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:35px;
 }
 
-/* SEMESTRES */
+/* ================= SEMESTRES ================= */
+
 .semestre{
-  border-radius:12px;
-  padding:15px;
+  margin-bottom:10px;
 }
-.semestre h3{
-  margin:0;
+
+/* HEADER */
+
+.semestre-header{
+  display:flex;
+  align-items:center;
   cursor:pointer;
-  user-select:none;
+  transition:0.3s;
+}
+
+.semestre-header:hover{
+  transform:translateY(-5px);
+}
+
+/* NUMERO */
+
+.numero{
+  width:120px;
+  height:120px;
+  min-width:120px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:55px;
+  font-weight:700;
+  z-index:2;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* BARRA */
+
+.barra-semestre{
+  flex:1;
+  height:65px;
+  margin-left:-20px;
+  border-radius:0 20px 20px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:24px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
 /* MATERIAS */
+
 .materias{
-  margin-top:12px;
   display:none;
+  margin-top:18px;
+  margin-left:60px;
 }
+
 .materia{
-  background:#ffffff;
-  border-radius:8px;
-  padding:10px;
-  margin-bottom:8px;
+  background:white;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:14px;
   cursor:pointer;
-  box-shadow:0 2px 4px rgba(0,0,0,0.1);
-  transition:0.2s;
+  transition:0.3s;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.10),
+    0 2px 6px rgba(0,0,0,0.05);
+  font-weight:500;
 }
+
 .materia:hover{
-  transform:scale(1.02);
+  transform:translateY(-3px);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.15),
+    0 4px 10px rgba(0,0,0,0.08);
 }
+
 .materia.cursada{
   text-decoration:line-through;
-  background:#e0e0e0;
-  opacity:0.6;
+  background:#d9ffd9;
+  opacity:0.7;
 }
 
-/* COLORES SEMESTRES */
-.azul{background:#b3d1ff;}
-.amarillo{background:#fff2b3;}
-.verde{background:#c6f5c6;}
-.naranja{background:#ffd6a3;}
-.rojo{background:#ffb3b3;}
+/* ================= COLORES ================= */
 
-/* AVANCE */
+.azul .numero,
+.azul .barra-semestre{
+  background:#1c7ed6;
+}
+
+.morado .numero,
+.morado .barra-semestre{
+  background:#7950f2;
+}
+
+.verde .numero,
+.verde .barra-semestre{
+  background:#2f9e44;
+}
+
+.naranja .numero,
+.naranja .barra-semestre{
+  background:#f08c00;
+}
+
+.rojo .numero,
+.rojo .barra-semestre{
+  background:#e03131;
+}
+
+/* ================= AVANCE ================= */
+
 .avance{
-  margin-top:40px;
+  margin-top:70px;
   text-align:center;
 }
+
+.avance p{
+  margin-top:15px;
+  font-size:18px;
+}
+
 .progress-container{
   width:80%;
-  height:25px;
-  background:#ddd;
-  border-radius:20px;
-  margin:15px auto;
+  height:28px;
+  background:#d0d0d0;
+  border-radius:30px;
   overflow:hidden;
+  margin:25px auto;
 }
+
 .progress-bar{
   height:100%;
   width:0%;
-  background:#0033a0;
-  transition:width 0.4s;
+  background:linear-gradient(to right,#0033a0,#3399ff);
+  transition:0.4s;
 }
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.container{
+  grid-template-columns:1fr;
+}
+
+.numero{
+  width:90px;
+  height:90px;
+  min-width:90px;
+  font-size:40px;
+}
+
+.barra-semestre{
+  height:55px;
+  font-size:18px;
+}
+
+body{
+  padding:20px;
+}
+
+.logo{
+  width:100%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>MALLA CURRICULAR</h1>
-<h2>Médico General UAZ</h2>
+<!-- ================= LOGO ================= -->
+
+<div class="logo-container">
+
+<img src="logo.png" class="logo">
+
+</div>
+
+<!-- ================= CONTENEDOR ================= -->
 
 <div class="container">
 
-<!-- SEMESTRES 1–10 -->
+<!-- ================= SEMESTRE 1 ================= -->
+
 <div class="semestre azul">
-<h3 onclick="toggle('s1')">Semestre 1</h3>
+
+<div class="semestre-header" onclick="toggle('s1')">
+
+<div class="numero">1</div>
+
+<div class="barra-semestre">
+Primer Semestre
+</div>
+
+</div>
+
 <div class="materias" id="s1">
-<div class="materia" onclick="toggleMateria(this,5.5)">Biología Celular</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Embriología</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Fisiología y Neurofisiología Básica</div>
-<div class="materia" onclick="toggleMateria(this,7.5)">Fundamentos y Anatomía General</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Introducción a Ciencias de la Salud</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Biología Celular
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Embriología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Fisiología y Neurofisiología Básica
+</div>
+
+<div class="materia" onclick="toggleMateria(this,7.5)">
+Fundamentos y Anatomía General
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Introducción a Ciencias de la Salud
+</div>
+
 </div>
 </div>
+
+<!-- ================= SEMESTRE 2 ================= -->
+
+<div class="semestre morado">
+
+<div class="semestre-header" onclick="toggle('s2')">
+
+<div class="numero">2</div>
+
+<div class="barra-semestre">
+Segundo Semestre
+</div>
+
+</div>
+
+<div class="materias" id="s2">
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Bioestadística
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Bioquímica
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Fisiología de Aparatos y Sistemas
+</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Histología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,7.5)">
+Neuroanatomía y Anatomía General
+</div>
+
+</div>
+</div>
+
+<!-- ================= SEMESTRE 3 ================= -->
+
+<div class="semestre verde">
+
+<div class="semestre-header" onclick="toggle('s3')">
+
+<div class="numero">3</div>
+
+<div class="barra-semestre">
+Tercer Semestre
+</div>
+
+</div>
+
+<div class="materias" id="s3">
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Historia y Filosofía de la Medicina
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Metodología de la Investigación
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Microbiología y Parasitología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Biología Molecular
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Farmacología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Psicología Médica
+</div>
+
+</div>
+</div>
+
+<!-- ================= SEMESTRE 4 ================= -->
+
+<div class="semestre naranja">
+
+<div class="semestre-header" onclick="toggle('s4')">
+
+<div class="numero">4</div>
+
+<div class="barra-semestre">
+Cuarto Semestre
+</div>
+
+</div>
+
+<div class="materias" id="s4">
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Bioética
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Educación y Técnicas Quirúrgicas
+</div>
+
+<div class="materia" onclick="toggleMateria(this,6.5)">
+Introducción a la Clínica Médica
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Histopatología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Fisiopatología
+</div>
+
+</div>
+</div>
+
+<!-- ================= SEMESTRE 5 ================= -->
+
+<div class="semestre rojo">
+
+<div class="semestre-header" onclick="toggle('s5')">
+
+<div class="numero">5</div>
+
+<div class="barra-semestre">
+Quinto Semestre
+</div>
+
+</div>
+
+<div class="materias" id="s5">
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Bioinformática Médica
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Genética
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Inmunología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Hematología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Infectología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Nutrición
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica General
+</div>
+
+</div>
+</div>
+
+<!-- ================= SEMESTRE 6 ================= -->
 
 <div class="semestre azul">
-<h3 onclick="toggle('s2')">Semestre 2</h3>
-<div class="materias" id="s2">
-<div class="materia" onclick="toggleMateria(this,3)">Bioestadística</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Bioquímica</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Fisiología de Aparatos y Sistemas</div>
-<div class="materia" onclick="toggleMateria(this,5.5)">Histología</div>
-<div class="materia" onclick="toggleMateria(this,7.5)">Neuroanatomía y Anatomía General</div>
-</div>
+
+<div class="semestre-header" onclick="toggle('s6')">
+
+<div class="numero">6</div>
+
+<div class="barra-semestre">
+Sexto Semestre
 </div>
 
-<div class="semestre amarillo">
-<h3 onclick="toggle('s3')">Semestre 3</h3>
-<div class="materias" id="s3">
-<div class="materia" onclick="toggleMateria(this,3)">Historia y Filosofía de la Medicina</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Metodología de la Investigación</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Microbiología y Parasitología</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Biología Molecular</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Farmacología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Psicología Médica</div>
-</div>
 </div>
 
-<div class="semestre amarillo">
-<h3 onclick="toggle('s4')">Semestre 4</h3>
-<div class="materias" id="s4">
-<div class="materia" onclick="toggleMateria(this,3.5)">Bioética</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Educación y Técnicas Quirúrgicas</div>
-<div class="materia" onclick="toggleMateria(this,6.5)">Introducción a la Clínica Médica</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Histopatología</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Fisiopatología</div>
-</div>
-</div>
-
-<div class="semestre verde">
-<h3 onclick="toggle('s5')">Semestre 5</h3>
-<div class="materias" id="s5">
-<div class="materia" onclick="toggleMateria(this,3.5)">Bioinformática Médica</div>
-<div class="materia" onclick="toggleMateria(this,3)">Genética</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Inmunología</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Hematología</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Infectología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Nutrición</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica General</div>
-</div>
-</div>
-
-<div class="semestre verde">
-<h3 onclick="toggle('s6')">Semestre 6</h3>
 <div class="materias" id="s6">
-<div class="materia" onclick="toggleMateria(this,3.5)">Imagenología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Traumatología y Ortopedia</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Gastroenterología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Otorrinolaringología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Urología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Oftalmología</div>
-<div class="materia" onclick="toggleMateria(this,5.5)">Salud Pública</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Quirúrgica</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Imagenología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Traumatología y Ortopedia
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Gastroenterología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Otorrinolaringología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Urología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Oftalmología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Salud Pública
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica Quirúrgica
+</div>
+
 </div>
 </div>
 
-<div class="semestre naranja">
-<h3 onclick="toggle('s7')">Semestre 7</h3>
+<!-- ================= SEMESTRE 7 ================= -->
+
+<div class="semestre morado">
+
+<div class="semestre-header" onclick="toggle('s7')">
+
+<div class="numero">7</div>
+
+<div class="barra-semestre">
+Séptimo Semestre
+</div>
+
+</div>
+
 <div class="materias" id="s7">
-<div class="materia" onclick="toggleMateria(this,5.5)">Medicina Social</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Cardiología</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Neumología</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Nefrología</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Neurología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Oncología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica de Medicina Interna</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Medicina Social
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Cardiología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Neumología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Nefrología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Neurología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Oncología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica de Medicina Interna
+</div>
+
 </div>
 </div>
+
+<!-- ================= SEMESTRE 8 ================= -->
+
+<div class="semestre verde">
+
+<div class="semestre-header" onclick="toggle('s8')">
+
+<div class="numero">8</div>
+
+<div class="barra-semestre">
+Octavo Semestre
+</div>
+
+</div>
+
+<div class="materias" id="s8">
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Terapéutica
+</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Prevención en Salud
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Endocrinología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3.5)">
+Reumatología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Dermatología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica MI y CP
+</div>
+
+<div class="materia" onclick="toggleMateria(this,2)">
+Cuidados Paliativos
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Patología Clínica
+</div>
+
+</div>
+</div>
+
+<!-- ================= SEMESTRE 9 ================= -->
 
 <div class="semestre naranja">
-<h3 onclick="toggle('s8')">Semestre 8</h3>
-<div class="materias" id="s8">
-<div class="materia" onclick="toggleMateria(this,3.5)">Terapéutica</div>
-<div class="materia" onclick="toggleMateria(this,5.5)">Prevención en Salud</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Endocrinología</div>
-<div class="materia" onclick="toggleMateria(this,3.5)">Reumatología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Dermatología</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica MI y CP</div>
-<div class="materia" onclick="toggleMateria(this,2)">Cuidados Paliativos</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Patología Clínica</div>
-</div>
+
+<div class="semestre-header" onclick="toggle('s9')">
+
+<div class="numero">9</div>
+
+<div class="barra-semestre">
+Noveno Semestre
 </div>
 
-<div class="semestre rojo">
-<h3 onclick="toggle('s9')">Semestre 9</h3>
+</div>
+
 <div class="materias" id="s9">
-<div class="materia" onclick="toggleMateria(this,3)">Psiquiatría</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Pediatría</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Obstetricia</div>
-<div class="materia" onclick="toggleMateria(this,3)">Medicina Legal</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Obstetricia</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Psiquiatría
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Pediatría
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Obstetricia
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Medicina Legal
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica Obstetricia
+</div>
+
 </div>
 </div>
+
+<!-- ================= SEMESTRE 10 ================= -->
 
 <div class="semestre rojo">
-<h3 onclick="toggle('s10')">Semestre 10</h3>
+
+<div class="semestre-header" onclick="toggle('s10')">
+
+<div class="numero">10</div>
+
+<div class="barra-semestre">
+Décimo Semestre
+</div>
+
+</div>
+
 <div class="materias" id="s10">
-<div class="materia" onclick="toggleMateria(this,5.5)">Medicina Comunitaria</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Pediatría II</div>
-<div class="materia" onclick="toggleMateria(this,4.5)">Ginecología</div>
-<div class="materia" onclick="toggleMateria(this,2)">Geriatría</div>
-<div class="materia" onclick="toggleMateria(this,3)">Práctica Clínica Ginecología</div>
+
+<div class="materia" onclick="toggleMateria(this,5.5)">
+Medicina Comunitaria
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Pediatría II
+</div>
+
+<div class="materia" onclick="toggleMateria(this,4.5)">
+Ginecología
+</div>
+
+<div class="materia" onclick="toggleMateria(this,2)">
+Geriatría
+</div>
+
+<div class="materia" onclick="toggleMateria(this,3)">
+Práctica Clínica Ginecología
+</div>
+
 </div>
 </div>
 
 </div>
+
+<!-- ================= AVANCE ================= -->
 
 <div class="avance">
+
 <p><strong>Materias Totales:</strong> 61</p>
 
 <div class="progress-container">
-  <div class="progress-bar" id="barra"></div>
+<div class="progress-bar" id="barra"></div>
 </div>
 
-<p><strong>Créditos cursados:</strong> <span id="creditos">0</span></p>
-<p><strong>Avance:</strong> <span id="porcentaje">0</span>%</p>
+<p>
+<strong>Créditos cursados:</strong>
+<span id="creditos">0</span>
+</p>
+
+<p>
+<strong>Avance:</strong>
+<span id="porcentaje">0</span>%
+</p>
+
 </div>
 
 <script>
+
 const TOTAL_CREDITOS = 273.5;
 
 function toggle(id){
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === "block" ? "none" : "block";
+
+const el = document.getElementById(id);
+
+el.style.display =
+el.style.display === "block"
+? "none"
+: "block";
+
 }
 
 function toggleMateria(el,creditos){
-  el.classList.toggle("cursada");
-  actualizar();
-  guardar();
+
+el.classList.toggle("cursada");
+
+actualizar();
+
+guardar();
+
 }
 
 function actualizar(){
-  let suma = 0;
-  document.querySelectorAll(".materia.cursada").forEach(m=>{
-    suma += Number(m.getAttribute("onclick").match(/,([\d.]+)\)/)[1]);
-  });
-  const porcentaje = (suma / TOTAL_CREDITOS) * 100;
-  document.getElementById("creditos").textContent = suma.toFixed(1);
-  document.getElementById("porcentaje").textContent = porcentaje.toFixed(1);
-  document.getElementById("barra").style.width = porcentaje + "%";
+
+let suma = 0;
+
+document.querySelectorAll(".materia.cursada")
+.forEach(m=>{
+
+suma += Number(
+m.getAttribute("onclick")
+.match(/,([\d.]+)\)/)[1]
+);
+
+});
+
+const porcentaje =
+(suma / TOTAL_CREDITOS) * 100;
+
+document.getElementById("creditos")
+.textContent = suma.toFixed(1);
+
+document.getElementById("porcentaje")
+.textContent = porcentaje.toFixed(1);
+
+document.getElementById("barra")
+.style.width = porcentaje + "%";
+
 }
 
 function guardar(){
-  const estado = [];
-  document.querySelectorAll(".materia").forEach((m,i)=>{
-    estado[i] = m.classList.contains("cursada");
-  });
-  localStorage.setItem("avanceMalla", JSON.stringify(estado));
+
+const estado = [];
+
+document.querySelectorAll(".materia")
+.forEach((m,i)=>{
+
+estado[i] =
+m.classList.contains("cursada");
+
+});
+
+localStorage.setItem(
+"avanceMalla",
+JSON.stringify(estado)
+);
+
 }
 
 function cargar(){
-  const estado = JSON.parse(localStorage.getItem("avanceMalla") || "[]");
-  document.querySelectorAll(".materia").forEach((m,i)=>{
-    if(estado[i]) m.classList.add("cursada");
-  });
-  actualizar();
+
+const estado =
+JSON.parse(
+localStorage.getItem("avanceMalla")
+|| "[]"
+);
+
+document.querySelectorAll(".materia")
+.forEach((m,i)=>{
+
+if(estado[i])
+m.classList.add("cursada");
+
+});
+
+actualizar();
+
 }
 
 cargar();
+
 </script>
 
 </body>
